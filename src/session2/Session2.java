@@ -46,15 +46,25 @@ public class Session2 {
     }
 
     public static void main(String args[]){
-        Session2 ss2 = new Session2();
+      //  Session2 ss2 = new Session2();
 //        ss2.inputInfo();
 //        ss2.showInfo();
-        Session2 ss3 = new Session2();
+      //  Session2 ss3 = new Session2();
 //        ss3.inputInfo();
 //        ss3.showInfo();
-        System.out.println("So sanh");
-        System.out.println("SS2 name: "+ss2.getName());
-        System.out.println("SS3 name: "+ss3.getName());
+//        System.out.println("So sanh");
+//        System.out.println("SS2 name: "+ss2.getName());
+//        System.out.println("SS3 name: "+ss3.getName());
+        SoNguyenTo snt = new SoNguyenTo();
+        for (int i=0;i<10;i++){
+//            int x = snt.timSoNguyenToTiepTheo();
+//            snt.setA(x);
+            snt.setA(snt.timSoNguyenToTiepTheo());
+            System.out.println(snt.getA());
+        }
+        //int z = 43;
+        snt.setA(43);
+        System.out.println("Next: "+snt.timSoNguyenToTiepTheo());
     }
 
     public static void sayHello(){
