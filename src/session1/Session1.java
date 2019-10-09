@@ -1,4 +1,6 @@
-package Session1;
+package session1;
+
+import session2.Session2;
 
 import java.util.Scanner;
 
@@ -11,7 +13,7 @@ public class Session1 {
         x = 10;
         System.out.println("x = "+x);
         System.out.println(say);
-        //System.out.println(Session1.say);
+        //System.out.println(session1.say);
         System.out.println("Nhap 1 so tu ban phim");
         Scanner sc = new Scanner(System.in);
         x = sc.nextInt();
@@ -26,6 +28,8 @@ public class Session1 {
         for(int z:ary){
             System.out.println(z);
         }
+        Session2 ss = new Session2();
+
     }
 
 }
