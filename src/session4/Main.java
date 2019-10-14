@@ -36,6 +36,7 @@ public class Main {
         }
         for(Fraction f: frList){
             f.inPhanSo();
+           // frList.indexOf(f);
         }
     }
 }

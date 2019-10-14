@@ -13,5 +13,8 @@ public class LopHoc {
 
     public void themSinhVien(SinhVien sv){
         this.dsSinhVien.add(sv);
+
+        this.dsSinhVien.remove(sv);
+        this.dsSinhVien.remove(2);
     }
 }
