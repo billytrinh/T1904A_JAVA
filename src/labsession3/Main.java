@@ -12,5 +12,7 @@ public class Main {
         Fraction fc2 = new Fraction(1,3);
 
         Fraction tong = fc.addFraction(fc2);
+        char a[] = {'a','b','c','d','e'};
+
     }
 }
