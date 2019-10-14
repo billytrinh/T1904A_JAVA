@@ -38,5 +38,24 @@ public class Main {
             f.inPhanSo();
            // frList.indexOf(f);
         }
+
+        ArrayList<String> strArr=  new ArrayList<>();
+
+        ArrayList<Integer> intArr = new ArrayList<>();
+        intArr.add(4);
+        int x = 10;
+        x += intArr.get(0);
+        System.out.println(intArr.get(0).toString());
+        System.out.println(intArr.get(0));
+        Float f=  new Float(3.15);
+        float fx = (float)3.15;
+        String xx = fx+ "";
+        Float f1 = new Float("3.14");
+        fx = fx + f1;
+        System.out.println(f.toString());
+
+        if(f.toString().equals("haha")){
+
+        }
     }
 }
