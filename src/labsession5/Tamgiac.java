@@ -6,6 +6,7 @@ public class Tamgiac {
     public int canh3;
 
     public Tamgiac() {
+
     }
 
     public Tamgiac(int canh1, int canh2, int canh3) {
