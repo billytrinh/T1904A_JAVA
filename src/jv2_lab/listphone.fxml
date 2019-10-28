@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane fx:controller="jv2_lab.ListPhone" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView fx:id="tbView" layoutX="51.0" layoutY="69.0" prefHeight="200.0" prefWidth="463.0">
+        <columns>
+          <TableColumn fx:id="colName" prefWidth="245.0" text="Name" />
+          <TableColumn fx:id="colTel" prefWidth="211.0" text="Telephone" />
+        </columns>
+      </TableView>
+      <Button onAction="#addTelephone" layoutX="51.0" layoutY="309.0" mnemonicParsing="false" text="Add Phone" />
+      <Button onAction="#sortTelephone" layoutX="151.0" layoutY="309.0" mnemonicParsing="false" text="Sort Phone" />
+   </children>
+</Pane>

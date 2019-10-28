@@ -2,7 +2,7 @@ package session6;
 
 public class Father extends GrandFather implements NhatAnh,DuyAnh{
 
-    public void lunch(){
+    public void lunch() throws Exception{
 
     }
     public void walk(){

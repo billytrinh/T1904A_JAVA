@@ -6,7 +6,7 @@ public abstract class GrandFather {
         System.out.println("Hello world!");
     }
 
-    public abstract void lunch();
+    public abstract void lunch() throws Exception;
     public abstract void walk();
     public abstract void breath();
 }
