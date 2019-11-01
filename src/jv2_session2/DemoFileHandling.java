@@ -14,12 +14,14 @@ public class DemoFileHandling {
                 DataInputStream dis = new DataInputStream(fis);
                 String line = "";
                 while ((line=dis.readLine()) != null){
-                    ftxt+=line;
+                    ftxt+=line+"\n";
                     String[] strs = line.split("-");
                     Student s = new Student(strs[0],Integer.parseInt(strs[1]),
                             Integer.parseInt(strs[2]));
                     arr.add(s);
                 }
+                dis.close();
+                fis.close();
             }catch (FileNotFoundException e){
                 System.out.println(e.getMessage());
             }catch (IOException e){
@@ -36,8 +38,10 @@ public class DemoFileHandling {
             try{
                 FileOutputStream fos = new FileOutputStream(f);
                 DataOutputStream dos = new DataOutputStream(fos);
-                String s = "Le van nam-20-4\n";
+                String s = "Le van nam-20-4";
                 dos.writeBytes(ftxt+s);
+                dos.close();
+                fos.close();
             }catch (FileNotFoundException e){
                 System.out.println(e.getMessage());
             }catch (IOException e){
