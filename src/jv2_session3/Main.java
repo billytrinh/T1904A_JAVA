@@ -5,7 +5,7 @@ public class Main {
         MyThread m1 = new MyThread();
         System.out.println(m1.getName());
         m1.setName("My Thread");
-        m1.start();
+       // m1.start();
 
         Subthread2 s2 = new Subthread2();
         Thread t1 = new Thread(s2);
@@ -16,7 +16,7 @@ public class Main {
             System.out.println("lambda expression");
         };
         Thread t2 = new Thread(r1);
-        t2.start();
+        //t2.start();
 
         Runnable r2 = new Runnable() {
             @Override
