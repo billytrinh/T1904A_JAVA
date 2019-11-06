@@ -8,7 +8,7 @@ public class Subthread2 implements Runnable {
                try {
                    //System.out.println((i>=10?"":"0")+i+":"+(j>=10?"":"0")+j);
                    System.out.println(String.format("%02d",i)+":"+String.format("%02d",j));
-                   Thread.sleep(100);
+                   Thread.sleep(1000);
                }catch (Exception e){
 
                }

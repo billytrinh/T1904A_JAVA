@@ -5,11 +5,16 @@ public class Main {
         MyThread m1 = new MyThread();
         System.out.println(m1.getName());
         m1.setName("My Thread");
-       // m1.start();
+        m1.start();
+        try {
+            m1.join();
+        }catch (Exception e){
 
+        }
         Subthread2 s2 = new Subthread2();
         Thread t1 = new Thread(s2);
         t1.setName("Runnable 1");
+       // t1.setDaemon(true);
         t1.start();
 
         Runnable r1 = ()->{
