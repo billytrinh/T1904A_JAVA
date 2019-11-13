@@ -1,5 +1,6 @@
 package jv2_labsession6;
 
+import Connector.Connector;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -23,14 +24,9 @@ public class ContactList implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:8889/t1904a";
-            String username = "root";
-            String password = "root";
-            Connection conn = DriverManager.getConnection(url, username, password);
-            Statement stm = conn.createStatement();
+            Connector connector = Connector.getInstance();
             String sql = "SELECT * FROM contact";
-            ResultSet rs = stm.executeQuery(sql);
+            ResultSet rs = connector.getQuery(sql);
 
             ObservableList<Contact> list  = FXCollections.observableArrayList();
 

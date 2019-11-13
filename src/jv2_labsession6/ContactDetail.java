@@ -1,5 +1,6 @@
 package jv2_labsession6;
 
+import Connector.Connector;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -27,15 +28,9 @@ public class ContactDetail implements Initializable {
         txt.setText(ContactList.detail.getContact_name());
         if(detail_id != ContactList.detail.getId()){
             try {
-                Class.forName("com.mysql.jdbc.Driver");
-                String url = "jdbc:mysql://localhost:8889/t1904a";
-                String username = "root";
-                String password = "root";
-                Connection conn = DriverManager.getConnection(url, username, password);
-                PreparedStatement prstm = conn.prepareStatement(sql_txt);
-                prstm.setInt(1,ContactList.detail.getId());
-
-                ResultSet rs = prstm.executeQuery();
+                Connector connector = Connector.getInstance();
+                String sql = "SELECT * FROM phone_number WHERE c_id ="+ContactList.detail.getId();
+                ResultSet rs = connector.getQuery(sql);
                 list.clear();
                 while (rs.next()){
                     Integer id = rs.getInt("id");
