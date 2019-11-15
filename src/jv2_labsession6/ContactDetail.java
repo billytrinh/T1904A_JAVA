@@ -15,8 +15,11 @@ import java.util.ResourceBundle;
 
 public class ContactDetail implements Initializable {
 
+    private static ContactDetail instance;
+
     public Text txt = new Text();
     public ListView<PhoneNumber> listView = new ListView<>();
+
 
     private String sql_txt = "SELECT * FROM phone_number WHERE c_id = ?";
 
@@ -25,7 +28,21 @@ public class ContactDetail implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        txt.setText(ContactList.detail.getContact_name());
+        if(instance == null){
+            instance = this;
+        }
+    }
+
+    public void back(){
+        try {
+            Main.mainStage.getScene().setRoot(Main.root);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void render(){
+        instance.txt.setText(ContactList.detail.getContact_name());
         if(detail_id != ContactList.detail.getId()){
             try {
                 Connector connector = Connector.getInstance();
@@ -45,16 +62,6 @@ public class ContactDetail implements Initializable {
                 System.out.println(e.getMessage());
             }
         }
-        listView.setItems(list);
-
-    }
-
-    public void back(){
-        try {
-            Parent view = FXMLLoader.load(getClass().getResource("contact.fxml"));
-            Main.mainStage.getScene().setRoot(view);
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-        }
+        instance.listView.setItems(list);
     }
 }

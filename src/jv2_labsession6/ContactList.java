@@ -16,13 +16,36 @@ import java.sql.Statement;
 import java.util.ResourceBundle;
 
 public class ContactList implements Initializable {
+    public static Parent view;
 
     public ListView<Contact> listView = new ListView<>();
 
     public static Contact detail;
 
+    private static ContactList instance;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        if(instance == null){
+            instance = this;
+        }
+
+    }
+
+    public void viewContact(){
+        detail = listView.getSelectionModel().getSelectedItem();
+        try {
+            if(view == null){
+                view = FXMLLoader.load(getClass().getResource("detail.fxml"));
+            }
+            ContactDetail.render();
+            Main.mainStage.getScene().setRoot(view);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void render(){
         try {
             Connector connector = Connector.getInstance();
             String sql = "SELECT * FROM contact";
@@ -38,18 +61,8 @@ public class ContactList implements Initializable {
                 Contact c = new Contact(id,contact_name,company,address);
                 list.add(c);
             }
-            listView.setItems(list);
+            instance.listView.setItems(list);
 
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public void viewContact(){
-        detail = listView.getSelectionModel().getSelectedItem();
-        try {
-            Parent view = FXMLLoader.load(getClass().getResource("detail.fxml"));
-            Main.mainStage.getScene().setRoot(view);
         }catch (Exception e){
             System.out.println(e.getMessage());
         }

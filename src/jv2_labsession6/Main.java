@@ -10,6 +10,8 @@ public class Main extends Application {
 
     public static Stage mainStage;
 
+    public static Parent root;
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -18,7 +20,10 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         mainStage = primaryStage;
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("contact.fxml"));
+            if(root==null){
+                root = FXMLLoader.load(getClass().getResource("contact.fxml"));
+            }
+            ContactList.render();
             primaryStage.setTitle("Contact");
             primaryStage.setScene(new Scene(root,300,400));
             primaryStage.show();
