@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.ListView;
+import jv2_session8.DataAccessObjectContact;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -47,20 +48,13 @@ public class ContactList implements Initializable {
 
     public static void render(){
         try {
-            Connector connector = Connector.getInstance();
-            String sql = "SELECT * FROM contact";
-            ResultSet rs = connector.getQuery(sql);
+
 
             ObservableList<Contact> list  = FXCollections.observableArrayList();
 
-            while (rs.next()){
-                Integer id = rs.getInt("id");
-                String contact_name = rs.getString("contact_name");
-                String company = rs.getString("company");
-                String address = rs.getString("address");
-                Contact c = new Contact(id,contact_name,company,address);
-                list.add(c);
-            }
+            DataAccessObjectContact daoc = new DataAccessObjectContact();
+            list.addAll(daoc.read());
+
             instance.listView.setItems(list);
 
         }catch (Exception e){
