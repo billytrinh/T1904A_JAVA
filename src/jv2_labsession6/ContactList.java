@@ -61,4 +61,11 @@ public class ContactList implements Initializable {
             System.out.println(e.getMessage());
         }
     }
+
+    public void addContact(){
+        try {
+            Parent form  = FXMLLoader.load(getClass().getResource("add_contact.fxml"));
+            Main.mainStage.getScene().setRoot(form);
+        }catch (Exception e){}
+    }
 }

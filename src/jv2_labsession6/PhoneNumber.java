@@ -5,6 +5,8 @@ public class PhoneNumber {
     public String telephone;
     public String type;
 
+    public String tableName = "phone_number";
+
     public PhoneNumber() {
     }
 

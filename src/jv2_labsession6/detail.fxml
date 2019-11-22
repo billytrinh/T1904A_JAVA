@@ -13,6 +13,7 @@
             <Font size="18.0" />
          </font>
       </Text>
+      <Button onAction="#deleteContact" layoutX="175.0" layoutY="31.0">Delete</Button>
       <ListView fx:id="listView" layoutX="26.0" layoutY="67.0" prefHeight="305.0" prefWidth="247.0" />
       <Hyperlink onAction="#back" layoutX="22.0" layoutY="13.0" text="&lt; Back" />
    </children>

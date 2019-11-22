@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
+import jv2_session8.DataAccessObjectContact;
 
 import java.net.URL;
 import java.sql.*;
@@ -63,5 +64,19 @@ public class ContactDetail implements Initializable {
             }
         }
         instance.listView.setItems(list);
+    }
+
+    public void deleteContact(){
+        Contact c = new Contact(detail_id,null,null,null);
+        DataAccessObjectPhoneNumber daoN = new DataAccessObjectPhoneNumber();
+        for (PhoneNumber p: list){
+            daoN.delete(p);
+        }
+        DataAccessObjectContact daoC = new DataAccessObjectContact();
+        daoC.delete(c);
+        try {
+            Main.mainStage.getScene().setRoot(Main.root);
+            ContactList.render();
+        }catch (Exception e){}
     }
 }
